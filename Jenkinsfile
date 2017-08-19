@@ -4,6 +4,13 @@ agent any
 triggers { cron('*/5 * * * *') }
 
     stages {
+	    
+	     stage ('Workspace Cleanup') {
+          steps {
+              deleteDir()
+    	         }
+
+		    
 
 		stage ('Git Checkout') {
 			steps	{
