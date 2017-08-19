@@ -24,7 +24,7 @@ triggers { cron('*/5 * * * *') }
 	               }
 	            }
 			}
-		stage("build_artifact") {
+		stage("Run Tests") {
         		agent { docker "maven:4-jdk-8" }
             		steps {
 				sh 'mvn package'
