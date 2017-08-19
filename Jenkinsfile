@@ -26,12 +26,13 @@ triggers { cron('*/5 * * * *') }
 			}
 		stage("Run Tests") {
         		agent { docker "maven:3-jdk-9" }
-            		steps {
+            	steps {
+					touch /tmp/aman.txt
 				//withEnv(["PATH+MAVEN=${tool 'maven3'}/bin"]) {
 				//		sh "mvn test"
 				//	 	}
 				//sh 'mvn package'
-				touch /tmp/aman.txt	
+					
 			}
 
 				}
