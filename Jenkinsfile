@@ -9,7 +9,7 @@ triggers { cron('*/5 * * * *') }
           steps {
               deleteDir()
     	         }
-
+	     }
 		    
 
 		stage ('Git Checkout') {
