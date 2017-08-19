@@ -4,7 +4,8 @@ agent any
 triggers { cron('*/5 * * * *') }
 
     stages {
-stage ('Git Checkout') {
+
+		stage ('Git Checkout') {
 			steps	{
 				script {
 				try {
@@ -22,7 +23,60 @@ stage ('Git Checkout') {
 	                sh 'echo Proceeding'
 	               }
 	            }
-        
-    }
-    }
-	}
+			}
+		stage("build_artifact") {
+        agent { docker "maven:4-jdk-8" }
+            steps {
+                sh 'mvn package'
+                sh 'ls -R *'
+                withEnv(["PATH+MAVEN=${tool 'maven4'}/bin"]) {
+         			sh "mvn test"
+        		}
+                }
+                
+                }
+
+
+			}
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
