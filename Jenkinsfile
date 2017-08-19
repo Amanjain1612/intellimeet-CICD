@@ -29,7 +29,7 @@ triggers { cron('*/5 * * * *') }
             		steps {
 				withEnv(["PATH+MAVEN=${tool 'maven3'}/bin"]) {
 						sh "mvn test"
-					 	//}
+					 	}
 				sh 'mvn package'	
 			}
 
