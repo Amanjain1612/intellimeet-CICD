@@ -25,16 +25,16 @@ triggers { cron('*/5 * * * *') }
 	            }
 			}
 		stage("build_artifact") {
-        agent { docker "maven:4-jdk-8" }
-            steps {
-                sh 'mvn package'
-                sh 'ls -R *'
-                withEnv(["PATH+MAVEN=${tool 'maven4'}/bin"]) {
-         			sh "mvn test"
-        		}
-                }
-                
-                }
+        		agent { docker "maven:4-jdk-8" }
+            		steps {
+				sh 'mvn package'
+				sh 'ls -R *'
+				withEnv(["PATH+MAVEN=${tool 'maven4'}/bin"]) {
+						sh "mvn test"
+					}
+				}
+
+				}
 
 
 			}
