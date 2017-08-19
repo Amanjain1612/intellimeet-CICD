@@ -7,7 +7,7 @@ triggers { cron('*/5 * * * *') }
 
         stage ('User Confirmation') {
         	steps	{
-			input message: 'Proceed or Abort', ok: 'Submit', parameters: [booleanParam(defaultValue: true, description: '', name: '')], submitter: '"Proceed,Abort"', submitterParameter: 'id'
+			input message: 'Proceed or Abort', submitter: 'Proceed,Abort', submitterParameter: 'id'
 			} }
 
 
